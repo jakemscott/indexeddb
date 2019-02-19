@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IndexDB Interaction Class</title>
+</head>
+<body>
+    <h1>Database Testing</h1>
+</body>
+
+<script src="js/Cache-V2.js" type="text/javascript"></script>
+<script src="js/LWP_Cache.js" type="text/javascript"></script>
+<script src="js/Utilities/Generator.js" type="text/javascript"></script>
+<script src="js/Utilities/Validator.js" type="text/javascript"></script>
+<script src="js/Utilities/Extensions.js" type="text/javascript"></script>
+
+<script>
+    class Dog {
+        constructor(name, ears) {
+            this.name = name;
+            this.ears = ears;
+        }
+    }
+    class Cat {
+        constructor(food, legs) {
+            this.food = food;
+            this.legs = legs;
+        }
+    }
+    var george = new Dog("George", "round");
+    var fred = new Dog("Fred", "pointy");
+    var kittens = new Cat("meat", 9);
+
+    let db = new iDB("Animals");
+    db.init()
+        .then(function() {
+            try {
+                db.createTable(Dog)
+                    .then(function() {
+                        db.add(george);
+                    });
+            } catch (e) {
+                console.error(e);
+            }
+        })
+        .finally(function() {
+            db.close();
+        });
+
+</script>
+</html>
