@@ -1,7 +1,7 @@
 <h1>IndexedDB</h1>
 This javascript project is an implementation of an easier to use indexeddb library for client side data storage.
 
-This implementation (currently titled Cache-V2.js) focuses on javascript object persistence.
+This implementation focuses on javascript object persistence.
 
 Basic usage is as follows:
 
